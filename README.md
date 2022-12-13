@@ -17,13 +17,13 @@ https://the-one-api.dev/v2
 Install this package into your project
 
 ```sh
-npm install lotr-sdk
+npm install @briannpham/lotr-sdk
 ```
 
 Import all necessary pre-defined SDK functions into your project. Refer to the [documentation](https://github.com/briannpham/Brian_Pham-SDK/blob/main/design.md) for all provided SDKs
 
 ```sh
-const { getAllBooks, getAllChapters, lessThan } = require('lotr-sdk');
+const { getAllBooks, getAllChapters, lessThan } = require('@briannpham/lotr-sdk');
 ```
 
 <hr>
