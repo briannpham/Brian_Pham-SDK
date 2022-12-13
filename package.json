@@ -1,0 +1,27 @@
+{
+  "name": "assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briannpham/Brian_Pham-SDK.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briannpham/Brian_Pham-SDK/issues"
+  },
+  "homepage": "https://github.com/briannpham/Brian_Pham-SDK#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
