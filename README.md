@@ -51,7 +51,11 @@ getAllBooks()
 
 ## Testing
 
-Refer to `index.test.js` for all SDK testing implementation
+Refer to `index.test.js` for all SDK testing implementation. Run the script below to excute test suite.
+
+```sh
+npm test
+```
 
 ### Example
 
