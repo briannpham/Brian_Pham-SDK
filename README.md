@@ -65,12 +65,11 @@ it('Get all book chapters', async () => {
 ```
 
 ```js
-it('Get a specific book chapter with id', async () => {
-    const chapter = await getChapterById('6091b6d6d58360f988133bc4');
-    const book = await getBookById(chapter.book);
+it('Return a list of movies that have RottenTomato score less than 70', 
+    async () => {
+        const movies = await lessThan('movie', 'rottenTomatoesScore', 70);
 
-    expect(chapter.chapterName).toEqual('The Steward and the King');
-    expect(book.name).toEqual('The Return Of The King');
-
+        expect(movies.length).toBe(3);
+        expect(movies[1].rottenTomatoesScore).toBe(64);
 });
 ```
