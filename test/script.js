@@ -1,5 +1,5 @@
 // Test NPM package
-const { getAllBooks, getAllChapters, getQuoteById, lessThan } = require('lotr-sdk');
+const { getAllBooks, getAllChapters, getQuoteById, lessThan } = require('@briannpham/lotr-sdk');
 
 getAllBooks()
 	.then(books => console.log(books));
