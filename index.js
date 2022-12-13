@@ -9,7 +9,7 @@ const config = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${ACCESS_KEY}`
   }
-}
+};
 
 /**
  * Get all "The Lord of The Rings" books
@@ -42,11 +42,11 @@ const getBookById = async (bookId) => {
  * @returns {Array} An array of all chapters 
  */
 const getAllChaptersOfABook = async (bookId) => {
-  const response = await fetch(`${baseURL}/book/${bookId}/chapter`)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/book/${bookId}/chapter`);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -54,11 +54,11 @@ const getAllChaptersOfABook = async (bookId) => {
  * @returns {Array} List of all movies
  */
 const getAllMovies = async () => {
-  const response = await fetch(`${baseURL}/movie`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/movie`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -70,8 +70,8 @@ const getMovieById = async (movieId) => {
   const response = await fetch(`${baseURL}/movie/${movieId}`, config);
   const data  = await response.json();
 
-  return data.docs[0]
-}
+  return data.docs[0];
+};
 
 
 /**
@@ -79,11 +79,11 @@ const getMovieById = async (movieId) => {
  * @return {Array} List of all characters
  */
 const getCharacters = async () => {
-  const response = await fetch(`${baseURL}/character`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/character`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -92,11 +92,11 @@ const getCharacters = async () => {
  * @return {Object} A character with id equals param id
  */
 const getCharacterById = async (characterId) => {
-  const response = await fetch(`${baseURL}/character/${characterId}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/character/${characterId}`, config);
+  const data = await response.json();
 
-  return data.docs[0]
-}
+  return data.docs[0];
+};
 
 
 /**
@@ -105,11 +105,11 @@ const getCharacterById = async (characterId) => {
  * @return {Array} List of all quotes of a character
  */
 const getAllQuotesOfACharacter = async (characterId) => {
-  const response = await fetch(`${baseURL}/character/${characterId}/quote`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/character/${characterId}/quote`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -117,11 +117,11 @@ const getAllQuotesOfACharacter = async (characterId) => {
  * @return {Array} List of all movie quotes
  */
 const getAllQuotes = async () => {
-  const response = await fetch(`${baseURL}/quote`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/quote`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -130,11 +130,11 @@ const getAllQuotes = async () => {
  * @return {Object} A quote with a given id
  */
 const getQuoteById = async (quoteId) => {
-  const response = await fetch(`${baseURL}/quote/${quoteId}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/quote/${quoteId}`, config);
+  const data = await response.json();
 
-  return data.docs[0]
-}
+  return data.docs[0];
+};
 
 
 /**
@@ -142,11 +142,11 @@ const getQuoteById = async (quoteId) => {
  * @return {Array} List of all book chapters
  */
 const getAllChapters = async () => {
-  const response = await fetch(`${baseURL}/chapter`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/chapter`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -155,11 +155,11 @@ const getAllChapters = async () => {
  * @return {Object} A book chapter with a given id
  */
 const getChapterById = async (chapterId) => {
-  const response = await fetch(`${baseURL}/chapter/${chapterId}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/chapter/${chapterId}`, config);
+  const data = await response.json();
 
-  return data.docs[0]
-}
+  return data.docs[0];
+};
 
 
 /**
@@ -168,11 +168,11 @@ const getChapterById = async (chapterId) => {
  * @return {Array} List of {limit} characters
  */
 const getNumbersOfCharacter = async (limit) => {
-  const response = await fetch(`${baseURL}/character?limit=${limit}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/character?limit=${limit}`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -181,11 +181,11 @@ const getNumbersOfCharacter = async (limit) => {
  * @return {Array} List of characters on param page
  */
 const getCharactersOnPage = async (page) => {
-  const response = await fetch(`${baseURL}/character?page=${page}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/character?page=${page}`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -195,11 +195,11 @@ const getCharactersOnPage = async (page) => {
  * @return {Array} List of objects within a category that have key matches a given value
  */
 const match = async (category, key, value) => {
-  const response = await fetch(`${baseURL}/${category}?${key}=${value}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/${category}?${key}=${value}`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 /**
@@ -209,11 +209,11 @@ const match = async (category, key, value) => {
  * @return {Array} List of objects within a category that satisfies condition
  */
 const lessThan = async (category, key, value) => {
-  const response = await fetch(`${baseURL}/${category}?${key}<${value}`, config)
-  const data = await response.json()
+  const response = await fetch(`${baseURL}/${category}?${key}<${value}`, config);
+  const data = await response.json();
 
-  return data.docs
-}
+  return data.docs;
+};
 
 
 module.exports = {
@@ -233,4 +233,4 @@ module.exports = {
   getCharactersOnPage,
   match,
   lessThan
-}
+};
