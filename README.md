@@ -37,14 +37,14 @@ const allLOTRBooks = async () => {
 	const books = await getAllBooks();
 
 	return books
-}
+};
 ```
 
 or 
 
 ```js
 getAllBooks()
-	.then(books => console.log(books))
+	.then(books => console.log(books));
 ```
 
 <hr>
@@ -59,18 +59,18 @@ Refer to `index.test.js` for all SDK testing implementation
 it('Get all book chapters', async () => {
     const chapters = await getAllChapters();
 
-    expect(chapters.length).toBeGreaterThan(0)
-    expect(chapters[0]).toHaveProperty('chapterName')
+    expect(chapters.length).toBeGreaterThan(0);
+    expect(chapters[0]).toHaveProperty('chapterName');
 })
 ```
 
 ```js
 it('Get a specific book chapter with id', async () => {
     const chapter = await getChapterById('6091b6d6d58360f988133bc4');
-    const book = await getBookById(chapter.book)
+    const book = await getBookById(chapter.book);
 
     expect(chapter.chapterName).toEqual('The Steward and the King');
-    expect(book.name).toEqual('The Return Of The King')
+    expect(book.name).toEqual('The Return Of The King');
 
-})
+});
 ```
