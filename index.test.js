@@ -1,7 +1,8 @@
 const { 
     getAllBooks, 
     getBookById,
-    getAllChapters
+    getAllChapters,
+    getAllMovies
 } = require('./index')
 
 it('Get all books', async () => {
@@ -38,4 +39,13 @@ it('Get all chapters of a book', async () => {
 
     expect(chapters[0]).toHaveProperty('chapterName')
     expect(chapters.length).toBeGreaterThan(3)
+})
+
+it('Get all LOTR movies', async () => {
+    const movies = await getAllMovies();
+    
+    expect(movies.length).toBeGreaterThan(3)
+    expect(movies[0]).toHaveProperty('boxOfficeRevenueInMillions')
+    expect(movies[0]).toHaveProperty('rottenTomatoesScore')
+    expect(movies[0]['_id']).toEqual('5cd95395de30eff6ebccde56')
 })

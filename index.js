@@ -6,7 +6,7 @@ const ACCESS_KEY = '8-0OVb4azr85RKHwQwvG';
 
 /**
  * Get all "The Lord of The Rings" books
- * @returns {Array} list of all books
+ * @returns {Array} List of all books
  */
 const getAllBooks = async () => {
   const response = await fetch(`${baseURL}/book`);
@@ -42,8 +42,27 @@ const getAllChapters = async (id) => {
 }
 
 
+/**
+ * Get all LOTR movies
+ * @returns {Array} List of all movies
+ */
+const getAllMovies = async () => {
+  const response = await fetch(`${baseURL}/movie`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${ACCESS_KEY}`
+    }
+  })
+  const data = await response.json()
+
+  return data.docs
+}
+
+
+
 module.exports = {
   getAllBooks,
   getBookById,
-  getAllChapters
+  getAllChapters,
+  getAllMovies
 }
