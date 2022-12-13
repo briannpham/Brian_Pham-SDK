@@ -10,7 +10,11 @@ const {
     getAllQuotes,
     getQuoteById,
     getAllChapters,
-    getChapterById
+    getChapterById,
+    getNumbersOfCharacter,
+    getCharactersOnPage,
+    match,
+    lessThan
 } = require('./index')
 
 
@@ -69,7 +73,7 @@ it('Get a movie with id', async () => {
 
 it('Get all characters', async () => {
     const characters = await getCharacters();
-
+    
     expect(characters.length).toBeGreaterThan(0);
     expect(characters[0]).toHaveProperty('race');
     expect(characters[0]).toHaveProperty('realm');
@@ -130,4 +134,42 @@ it('Return a correct character name from a quote id', async () => {
     expect(quote.dialog).toEqual('No!')
     expect(character.name).toEqual('Gríma Wormtongue')
 
+})
+
+it('Return a correct number of characters set by limit', async () => {
+    const characters = await getNumbersOfCharacter(20);
+
+    expect(characters.length).toBe(20);
+})
+
+xit('Return a list of 10 characters on a given page', async () => {
+    const characters = await getCharactersOnPage(1);
+
+    expect(characters.length).toBe(10)
+})
+
+it('Return a list of objects within a category that match a given value', async () => {
+    const characterList = await match('character', 'name', 'Baran')
+    const characterList1 = await match('character', 'gender', 'Male')
+
+    expect(characterList[0].name).toEqual('Baran')
+    expect(characterList[0].gender).toEqual('Male');
+    expect(characterList[0].realm).toEqual('Estolad');
+    
+    expect(characterList1[10].gender).toEqual('Male')
+    expect(characterList1[40].gender).toEqual('Male')
+})
+
+it('Return a list of movies that have budgest less than 100 millions', async () => {
+    const movies = await lessThan('movie', 'budgetInMillions', 100);
+
+    expect(movies.length).toBe(3)
+    expect(movies[0].budgetInMillions).toBe(94)
+})
+
+it('Return a list of movies that have RottenTomato score less than 70', async () => {
+    const movies = await lessThan('movie', 'rottenTomatoesScore', 70);
+
+    expect(movies.length).toBe(3)
+    expect(movies[1].rottenTomatoesScore).toBe(64)
 })

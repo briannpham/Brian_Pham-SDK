@@ -161,6 +161,61 @@ const getChapterById = async (chapterId) => {
   return data.docs[0]
 }
 
+
+/**
+ * Get a limited numbers of characters
+ * @param {number} limit - Limit number
+ * @return {Array} List of {limit} characters
+ */
+const getNumbersOfCharacter = async (limit) => {
+  const response = await fetch(`${baseURL}/character?limit=${limit}`, config)
+  const data = await response.json()
+
+  return data.docs
+}
+
+
+/**
+ * Get a list of characters by page. Each page is limited to 10 characters by default
+ * @param {number} page - Page number
+ * @return {Array} List of characters on param page
+ */
+const getCharactersOnPage = async (page) => {
+  const response = await fetch(`${baseURL}/character?page=${page}`, config)
+  const data = await response.json()
+
+  return data.docs
+}
+
+
+/**
+ * Filter a category by key/value (exact match)
+ * @param {string} category - A category (ex: character, book, movie, chapter, ...)
+ * @param {string} value
+ * @return {Array} List of objects within a category that have key matches a given value
+ */
+const match = async (category, key, value) => {
+  const response = await fetch(`${baseURL}/${category}?${key}=${value}`, config)
+  const data = await response.json()
+
+  return data.docs
+}
+
+
+/**
+ * Filter a caterogy by key/value
+ * @param {string} category - A category (ex: character, book, movie, chapter, ...)
+ * @param {string} value
+ * @return {Array} List of objects within a category that satisfies condition
+ */
+const lessThan = async (category, key, value) => {
+  const response = await fetch(`${baseURL}/${category}?${key}<${value}`, config)
+  const data = await response.json()
+
+  return data.docs
+}
+
+
 module.exports = {
   getAllBooks,
   getBookById,
@@ -173,5 +228,9 @@ module.exports = {
   getAllQuotes,
   getQuoteById,
   getAllChapters,
-  getChapterById
+  getChapterById,
+  getNumbersOfCharacter,
+  getCharactersOnPage,
+  match,
+  lessThan
 }
